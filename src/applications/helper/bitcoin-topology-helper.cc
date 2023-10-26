@@ -708,7 +708,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
 	  m_regionLatencies[k][j] = regionLatencies[k][j];
   
   m_regionDownloadSpeeds[NORTH_AMERICA] = 0;
-  m_regionDownloadSpeeds[EUROPE] = 21.29;
+  m_regionDownloadSpeeds[EUROPE] = 0;
   m_regionDownloadSpeeds[SOUTH_AMERICA] = 9.89;
   m_regionDownloadSpeeds[ASIA_PACIFIC] = 14.56;
   m_regionDownloadSpeeds[JAPAN] = 6.9;
@@ -716,7 +716,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   m_regionDownloadSpeeds[THAILAND] = 30;
 
   m_regionUploadSpeeds[NORTH_AMERICA] = 0;
-  m_regionUploadSpeeds[EUROPE] = 6.72;
+  m_regionUploadSpeeds[EUROPE] = 0;
   m_regionUploadSpeeds[SOUTH_AMERICA] = 2.2;
   m_regionUploadSpeeds[ASIA_PACIFIC] = 6.53;
   m_regionUploadSpeeds[JAPAN] = 1.7;
