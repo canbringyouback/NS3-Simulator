@@ -378,7 +378,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8};
 
   std::array<double,1000> AustraliaDownloadWeights {
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 37, 43, 25, 24, 29, 23, 28, 25, 28, 17, 27,
+    234, 143, 130, 80, 69, 73, 48, 56, 52, 45, 62, 52, 48, 37, 43, 25, 24, 29, 23, 28, 25, 28, 17, 27,
 	23, 24, 12, 18, 17, 13, 12, 8, 9, 12, 15, 11, 7, 9, 13, 8, 3, 6, 3, 3, 6, 12, 5, 5, 2, 4, 1, 14, 12,
 	12, 9, 10, 17, 12, 16, 4, 7, 3, 1, 4, 2, 5, 3, 6, 6, 5, 7, 1, 1, 0, 1, 1, 0, 0, 2, 0, 3, 2, 1, 0, 2,
 	0, 3, 5, 2, 3, 5, 3, 1, 1, 4, 3, 2, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 2, 0, 1, 1, 1, 0, 0, 1, 1, 2,
@@ -635,7 +635,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
   std::array<double,1000> JapanDownloadWeights {
-    0, 0, 0, 0, 68, 62, 105, 52, 32, 47, 27, 30, 27, 29, 18, 24, 19, 20, 15, 20, 11, 14, 15,
+    344, 157, 125, 92, 68, 62, 105, 52, 32, 47, 27, 30, 27, 29, 18, 24, 19, 20, 15, 20, 11, 14, 15,
 	9, 9, 5, 8, 11, 9, 9, 7, 7, 5, 8, 4, 7, 8, 4, 5, 6, 10, 6, 7, 8, 7, 9, 15, 4, 7, 10, 14, 7, 5,
 	10, 9, 14, 9, 7, 5, 3, 3, 7, 2, 2, 7, 3, 0, 2, 2, 3, 3, 3, 1, 1, 3, 6, 3, 2, 6, 2, 1, 4, 3, 2,
 	5, 4, 8, 2, 8, 0, 3, 6, 3, 2, 2, 4, 0, 0, 0, 3, 0, 2, 0, 2, 2, 1, 1, 1, 2, 3, 1, 3, 0, 0, 0, 0,
@@ -707,20 +707,20 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
     for (int j = 0; j < 7; j++)
 	  m_regionLatencies[k][j] = regionLatencies[k][j];
   
-  m_regionDownloadSpeeds[NORTH_AMERICA] = 0;
-  m_regionDownloadSpeeds[EUROPE] = 0;
-  m_regionDownloadSpeeds[SOUTH_AMERICA] = 0;
-  m_regionDownloadSpeeds[ASIA_PACIFIC] = 0;
-  m_regionDownloadSpeeds[JAPAN] = 0;
-  m_regionDownloadSpeeds[AUSTRALIA] = 0;
+  m_regionDownloadSpeeds[NORTH_AMERICA] = 41.68;
+  m_regionDownloadSpeeds[EUROPE] = 21.29;
+  m_regionDownloadSpeeds[SOUTH_AMERICA] = 9.89;
+  m_regionDownloadSpeeds[ASIA_PACIFIC] = 14.56;
+  m_regionDownloadSpeeds[JAPAN] = 6.9;
+  m_regionDownloadSpeeds[AUSTRALIA] = 16;
   m_regionDownloadSpeeds[THAILAND] = 30;
 
-  m_regionUploadSpeeds[NORTH_AMERICA] = 0;
-  m_regionUploadSpeeds[EUROPE] = 0;
-  m_regionUploadSpeeds[SOUTH_AMERICA] = 0;
-  m_regionUploadSpeeds[ASIA_PACIFIC] = 0;
-  m_regionUploadSpeeds[JAPAN] = 0;
-  m_regionUploadSpeeds[AUSTRALIA] = 0;
+  m_regionUploadSpeeds[NORTH_AMERICA] = 6.74;
+  m_regionUploadSpeeds[EUROPE] = 6.72;
+  m_regionUploadSpeeds[SOUTH_AMERICA] = 2.2;
+  m_regionUploadSpeeds[ASIA_PACIFIC] = 6.53;
+  m_regionUploadSpeeds[JAPAN] = 1.7;
+  m_regionUploadSpeeds[AUSTRALIA] = 6.1;
   m_regionUploadSpeeds[THAILAND] = 30;
   srand (1000);
 
