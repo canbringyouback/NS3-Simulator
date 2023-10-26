@@ -746,7 +746,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
     {
       if (m_systemId == 0)
         std::cout << "BITCOIN Mode selected\n";
-      std::array<double,6> nodesDistributionWeights {38.69, 51.59, 1.13, 5.74, 1.19, 1.66,0.32};
+      std::array<double,7> nodesDistributionWeights {38.69, 51.59, 1.13, 5.74, 1.19, 1.66,0.32};
       m_nodesDistribution = std::piecewise_constant_distribution<double> (nodesDistributionIntervals.begin(), nodesDistributionIntervals.end(), nodesDistributionWeights.begin());
 
       break;		
