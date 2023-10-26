@@ -188,6 +188,8 @@ private:
   std::piecewise_constant_distribution<double>   m_southAmericaUploadBandwidthDistribution;
   std::piecewise_constant_distribution<double>   m_australiaDownloadBandwidthDistribution;
   std::piecewise_constant_distribution<double>   m_australiaUploadBandwidthDistribution;
+  std::piecewise_constant_distribution<double>   m_thailandDownloadBandwidthDistribution;
+  std::piecewise_constant_distribution<double>   m_thailandUploadBandwidthDistribution;
 };
 
 

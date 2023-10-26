@@ -49,12 +49,13 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   std::vector<uint32_t>     nodes;    //nodes contain the ids of the nodes
   double                    tStart = GetWallTime();
   double                    tFinish;
-  double regionLatencies[6][6] = { {35.5, 119.49, 254.79, 310.11, 154.36, 207.91},
-	                               {119.49, 11.61, 221.08, 241.9, 266.45, 350.07},
-	                               {254.79, 221.08, 137.09, 346.65, 255.95, 268.91},
-	                               {310.11, 241.9, 346.65, 99.46, 172.24, 277.8},
-	                               {154.36, 266.45, 255.95, 172.24, 8.76, 162.59},
-	                               {207.91, 350.07, 268.91, 277.8, 162.59, 21.72}};
+  double regionLatencies[7][7] = { {35.5, 119.49, 254.79, 310.11, 154.36, 207.91,320.65},
+	                               {119.49, 11.61, 221.08, 241.9, 266.45, 350.07,410.23},
+	                               {254.79, 221.08, 137.09, 346.65, 255.95, 268.91,350.65},
+	                               {310.11, 241.9, 346.65, 99.46, 172.24, 277.8,370.23},
+	                               {154.36, 266.45, 255.95, 172.24, 8.76, 162.59,380.45},
+	                               {207.91, 350.07, 268.91, 277.8, 162.59, 21.72,360.33}
+                                 {320.65, 410.23, 350.65, 370.23, 380.45, 360.33,12.00}};
 								   
   std::array<double,1001> downloadBandwitdhIntervals {
    0.1, 0.6, 1.1, 1.6, 2.1, 2.6, 3.1, 3.6, 4.1, 4.6, 5.1, 5.6, 6.1, 6.6,
@@ -275,6 +276,74 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2};
 
   std::array<double,999> EuropeUploadWeights {
+    99, 51, 48, 70, 58, 44, 43, 31, 27, 27, 24, 24, 25, 24, 21, 18, 20, 21, 19, 18, 16, 15, 19, 18,
+	15, 18, 21, 26, 23, 17, 17, 14, 15, 15, 14, 16, 19, 20, 17, 13, 17, 11, 11, 11, 11, 10, 13, 11,
+	10, 12, 12, 12, 13, 9, 11, 10, 10, 9, 9, 7, 7, 7, 8, 8, 9, 5, 7, 5, 6, 8, 7, 6, 6, 8, 8, 8, 8,
+	10, 9, 9, 8, 7, 8, 5, 4, 5, 3, 5, 5, 5, 4, 4, 5, 5, 5, 6, 7, 7, 5, 7, 7, 5, 4, 5, 3, 5, 5, 4, 6,
+	4, 4, 3, 4, 5, 4, 5, 4, 4, 3, 2, 3, 3, 4, 3, 2, 2, 3, 2, 2, 3, 2, 2, 2, 2, 3, 1, 3, 2, 2, 3, 2,
+	2, 1, 4, 3, 3, 3, 2, 3, 2, 2, 2, 3, 1, 2, 2, 2, 0, 0, 3, 2, 2, 1, 2, 2, 3, 1, 0, 2, 2, 1, 2, 1,
+	1, 2, 1, 1, 1, 2, 1, 3, 1, 2, 1, 1, 3, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 0, 1, 2, 1, 2, 2, 1, 2, 1,
+	1, 1, 2, 1, 2, 2, 1, 1, 1, 2, 1, 1, 2, 1, 1, 0, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 1, 2, 0, 1, 1, 1,
+	2, 1, 1, 0, 2, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1,
+	2, 1, 0, 2, 1, 1, 0, 2, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 1,
+	1, 1, 1, 2, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0,
+	1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1,
+	1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0,
+	0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1,
+	0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0,
+	0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1,
+	0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+	0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8};
+
+   std::array<double,1000> ThailandDownloadWeights {
+    134, 77, 65, 58, 43, 44, 48, 42, 34, 41, 42, 41, 33, 35, 35, 38, 37, 30, 36, 37, 34, 24, 21, 23,
+	22, 21, 20, 19, 17, 16, 13, 18, 20, 15, 18, 17, 15, 11, 15, 10, 13, 12, 11, 11, 11, 13, 11, 12,
+	9, 12, 13, 10, 10, 9, 10, 10, 9, 7, 8, 7, 7, 7, 6, 10, 6, 5, 6, 9, 6, 5, 7, 4, 6, 6, 4, 5, 4, 6,
+	7, 5, 6, 6, 7, 5, 5, 5, 4, 4, 4, 4, 5, 6, 6, 5, 6, 4, 5, 5, 3, 3, 3, 4, 3, 3, 3, 2, 4, 3, 2, 3,
+	4, 3, 2, 3, 4, 2, 3, 3, 4, 3, 1, 3, 4, 2, 1, 3, 2, 5, 3, 3, 2, 1, 3, 2, 2, 1, 3, 2, 2, 3, 2, 2,
+	1, 2, 2, 2, 0, 1, 1, 0, 1, 1, 2, 1, 0, 1, 2, 2, 1, 1, 1, 2, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0,
+	1, 0, 0, 1, 1, 1, 1, 2, 2, 1, 0, 1, 1, 1, 2, 1, 1, 1, 0, 2, 2, 1, 1, 1, 2, 0, 1, 0, 2, 0, 1, 0,
+	1, 0, 0, 0, 1, 1, 1, 2, 0, 0, 1, 1, 0, 1, 0, 0, 2, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1,
+	2, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1,
+	0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,
+	1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+	0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+	0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2};
+
+  std::array<double,999> ThailandUploadWeights {
     99, 51, 48, 70, 58, 44, 43, 31, 27, 27, 24, 24, 25, 24, 21, 18, 20, 21, 19, 18, 16, 15, 19, 18,
 	15, 18, 21, 26, 23, 17, 17, 14, 15, 15, 14, 16, 19, 20, 17, 13, 17, 11, 11, 11, 11, 10, 13, 11,
 	10, 12, 12, 12, 13, 9, 11, 10, 10, 9, 9, 7, 7, 7, 8, 8, 9, 5, 7, 5, 6, 8, 7, 6, 6, 8, 8, 8, 8,
@@ -634,8 +703,8 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	
 	
-  for (int k = 0; k < 6; k++)
-    for (int j = 0; j < 6; j++)
+  for (int k = 0; k < 7; k++)
+    for (int j = 0; j < 7; j++)
 	  m_regionLatencies[k][j] = regionLatencies[k][j];
   
   m_regionDownloadSpeeds[NORTH_AMERICA] = 41.68;
@@ -644,6 +713,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   m_regionDownloadSpeeds[ASIA_PACIFIC] = 14.56;
   m_regionDownloadSpeeds[JAPAN] = 6.9;
   m_regionDownloadSpeeds[AUSTRALIA] = 16;
+  m_regionDownloadSpeeds[THAILAND] = 30;
 
   m_regionUploadSpeeds[NORTH_AMERICA] = 6.74;
   m_regionUploadSpeeds[EUROPE] = 6.72;
@@ -651,6 +721,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   m_regionUploadSpeeds[ASIA_PACIFIC] = 6.53;
   m_regionUploadSpeeds[JAPAN] = 1.7;
   m_regionUploadSpeeds[AUSTRALIA] = 6.1;
+  m_regionUploadSpeeds[THAILAND] = 30;
   srand (1000);
 
   // Bounds check
@@ -667,7 +738,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   m_bitcoinNodesRegion = new uint32_t[m_totalNoNodes];
   
   
-  std::array<double,7> nodesDistributionIntervals {NORTH_AMERICA, EUROPE, SOUTH_AMERICA, ASIA_PACIFIC, JAPAN, AUSTRALIA, OTHER};
+  std::array<double,8> nodesDistributionIntervals {NORTH_AMERICA, EUROPE, SOUTH_AMERICA, ASIA_PACIFIC, JAPAN, AUSTRALIA,THAILAND, OTHER};
 
   switch (m_cryptocurrency) 
   {
@@ -675,7 +746,7 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
     {
       if (m_systemId == 0)
         std::cout << "BITCOIN Mode selected\n";
-      std::array<double,6> nodesDistributionWeights {38.69, 51.59, 1.13, 5.74, 1.19, 1.66};
+      std::array<double,6> nodesDistributionWeights {38.69, 51.59, 1.13, 5.74, 1.19, 1.66,0.32};
       m_nodesDistribution = std::piecewise_constant_distribution<double> (nodesDistributionIntervals.begin(), nodesDistributionIntervals.end(), nodesDistributionWeights.begin());
 
       break;		
@@ -701,11 +772,11 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   }
   
 
-  std::array<double,7> connectionsDistributionIntervals {1, 5, 10, 15, 20, 30, 125};
-  for (int i = 0; i < 7; i++)
+  std::array<double,8> connectionsDistributionIntervals {1, 5, 10, 15, 20, 30,45, 125};
+  for (int i = 0; i < 8; i++)
 	connectionsDistributionIntervals[i] -= i;
 	
-  std::array<double,6> connectionsDistributionWeights {10, 40, 30, 13, 6, 1};
+  std::array<double,7> connectionsDistributionWeights {10, 40, 30, 13, 6, 1,1};
                                 
   m_connectionsDistribution = std::piecewise_constant_distribution<double> (connectionsDistributionIntervals.begin(), connectionsDistributionIntervals.end(), connectionsDistributionWeights.begin());
 
@@ -721,7 +792,8 @@ BitcoinTopologyHelper::BitcoinTopologyHelper (uint32_t noCpus, uint32_t totalNoN
   m_southAmericaUploadBandwidthDistribution = std::piecewise_constant_distribution<double> (uploadBandwitdhIntervals.begin(), uploadBandwitdhIntervals.end(), SouthAmericaUploadWeights.begin());
   m_australiaDownloadBandwidthDistribution = std::piecewise_constant_distribution<double> (downloadBandwitdhIntervals.begin(), downloadBandwitdhIntervals.end(), AustraliaDownloadWeights.begin());
   m_australiaUploadBandwidthDistribution = std::piecewise_constant_distribution<double> (uploadBandwitdhIntervals.begin(), uploadBandwitdhIntervals.end(), AustraliaUploadWeights.begin());
-  
+  m_thailandDownloadBandwidthDistribution = std::piecewise_constant_distribution<double> (downloadBandwitdhIntervals.begin(), downloadBandwitdhIntervals.end(), ThailandDownloadWeights.begin());
+  m_thailandUploadBandwidthDistribution = std::piecewise_constant_distribution<double> (uploadBandwitdhIntervals.begin(), uploadBandwitdhIntervals.end(), ThailandUploadWeights.begin());
   m_minersRegions = new enum BitcoinRegion[m_noMiners];
   for (int i = 0; i < m_noMiners; i++)
   {
@@ -1399,6 +1471,12 @@ BitcoinTopologyHelper::AssignInternetSpeeds(uint32_t id)
       {
         m_nodesInternetSpeeds[id].downloadSpeed = m_southAmericaDownloadBandwidthDistribution(m_generator);
         m_nodesInternetSpeeds[id].uploadSpeed = m_southAmericaUploadBandwidthDistribution(m_generator);
+        break;
+      }
+       case THAILAND: 
+      {
+        m_nodesInternetSpeeds[id].downloadSpeed = m_thailandDownloadBandwidthDistribution(m_generator);
+        m_nodesInternetSpeeds[id].uploadSpeed = m_thailandUploadBandwidthDistribution(m_generator);
         break;
       }
     }

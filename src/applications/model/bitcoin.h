@@ -92,6 +92,7 @@ enum BitcoinRegion
   ASIA_PACIFIC,     //3
   JAPAN,            //4
   AUSTRALIA,        //5
+  THAILAND,
   OTHER             //6
 };
 

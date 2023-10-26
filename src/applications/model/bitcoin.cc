@@ -771,6 +771,7 @@ const char* getBitcoinRegion(enum BitcoinRegion m)
     case JAPAN: return "JAPAN";
     case NORTH_AMERICA: return "NORTH_AMERICA";
     case SOUTH_AMERICA: return "SOUTH_AMERICA";
+    case THAILAND: return "THAILAND";
     case OTHER: return "OTHER";
   }
 }
@@ -786,7 +787,8 @@ enum BitcoinRegion getBitcoinEnum(uint32_t n)
     case 3: return ASIA_PACIFIC;
     case 4: return JAPAN;
     case 5: return AUSTRALIA;
-    case 6: return OTHER;
+    case 6: return THAILAND;
+    case 7: return OTHER;
   }
 }
 }// Namespace ns3

@@ -78,10 +78,10 @@ main (int argc, char *argv[])
   
   double bitcoinMinersHash[] = {0.289, 0.196, 0.159, 0.133, 0.066, 0.054,
                                 0.029, 0.016, 0.012, 0.012, 0.012, 0.009,
-                                0.005, 0.005, 0.002, 0.002};
+                                0.005, 0.005, 0.001,0.003};
   enum BitcoinRegion bitcoinMinersRegions[] = {ASIA_PACIFIC, ASIA_PACIFIC, ASIA_PACIFIC, NORTH_AMERICA, ASIA_PACIFIC, NORTH_AMERICA,
                                                EUROPE, EUROPE, NORTH_AMERICA, NORTH_AMERICA, NORTH_AMERICA, EUROPE,
-                                               NORTH_AMERICA, NORTH_AMERICA, NORTH_AMERICA, NORTH_AMERICA};
+                                               NORTH_AMERICA, NORTH_AMERICA, NORTH_AMERICA,THAILAND};
 
   double litecoinMinersHash[] = {0.366, 0.314, 0.122, 0.072, 0.028, 0.024, 0.022, 0.018, 0.012, 0.01, 0.006, 0.006};
   enum BitcoinRegion litecoinMinersRegions[] = {ASIA_PACIFIC, ASIA_PACIFIC, ASIA_PACIFIC, NORTH_AMERICA, EUROPE, NORTH_AMERICA,
@@ -935,13 +935,13 @@ void PrintTotalStats (nodeStatistics *stats, int totalNodes, double start, doubl
 
 void PrintBitcoinRegionStats (uint32_t *bitcoinNodesRegions, uint32_t totalNodes)
 {
-  uint32_t regions[7] = {0, 0, 0, 0, 0, 0, 0};
+  uint32_t regions[8] = {0, 0, 0, 0, 0, 0, 0, 0};
   
   for (uint32_t i = 0; i < totalNodes; i++)
     regions[bitcoinNodesRegions[i]]++;
   
   std::cout << "Nodes distribution: \n";
-  for (uint32_t i = 0; i < 7; i++)
+  for (uint32_t i = 0; i < 8; i++)
   {
     std::cout << getBitcoinRegion(getBitcoinEnum(i)) << ": " << regions[i] * 100.0 / totalNodes << "%\n";
   }
